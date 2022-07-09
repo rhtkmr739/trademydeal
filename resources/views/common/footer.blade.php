@@ -38,9 +38,10 @@
 Trademydeal.com has been setup with an aim of digitalizing the current Import-Export trade & the bulk Domestic Trade by setting up a market place which brings the manufacturers directly in contact with bulk consumers across the world.										</p>
                                         <ul  class="footer-contacts fl-wrap no-list-style">
                                             <li><span><i class="fal fa-envelope"></i> Mail :</span><a href="#" target="_blank">info@trademydeal.com</a></li>
+                                            <li><span><i class="fal fa-envelope"></i> Mail :</span><a href="#" target="_blank">info@amazefuturetechnology.com</a></li>
                                             <li> <span><i class="fal fa-map-marker"></i> Address :</span><a href="#" target="_blank">A-1,3rd floor,Gulab Bagh,Piller no. 733,Nawada Metro Gate-3,Uttam Nagar,New Delhi,110059</a></li>
-                                            <li><span><i class="fal fa-phone"></i> Phone :</span><a href="#">+91-9311781740</a></li>
-                                        </ul>
+<!--                                            <li><span><i class="fal fa-phone"></i> Phone :</span><a href="#">+91-9311781740</a></li>
+-->                                        </ul>
                                         <div class="footer-social">
                                             <span>Find  us on: </span>
                                             <ul class="no-list-style">
@@ -114,7 +115,7 @@ Trademydeal.com has been setup with an aim of digitalizing the current Import-Ex
                 <!--sub-footer-->
                 <div class="sub-footer  fl-wrap">
                     <div class="container">
-                        <div class="copyright"> &#169; Amaze Future Technology 2021 .  All rights reserved.</div>
+                        <div class="copyright"> &#169; Amaze Future Technology 2020-2022 .  All rights reserved.</div>
                        
                         <div class="subfooter-nav">
                             <ul class="no-list-style">
@@ -122,7 +123,6 @@ Trademydeal.com has been setup with an aim of digitalizing the current Import-Ex
                                 <li><a href="/terms-conditions">Terms and Conditions</a></li>
                                 <li><a href="/privacy-policy">Privacy Policy</a></li>
                                 <li><a href="/refund-cancellation">Refund and Cancellation</a></li>
-                                <li><a href="https://www.blog.trademydeal.com/">Blog</a></li>
                                 <li><a href="/about-us">About Us</a></li>
                                 <li><a href="/contact-us">Contact Us</a></li>
                             </ul>

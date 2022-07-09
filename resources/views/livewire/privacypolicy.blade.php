@@ -11,9 +11,9 @@
                         <div class="overlay op7"></div>
                         <div class="container">
                             <div class="section-title center-align big-title">
-                                <h2><span>Our Tariff Plans</span></h2>
+                                <h2><span>Privacy Policy</span></h2>
                                 <span class="section-separator"></span>
-                                <div class="breadcrumbs fl-wrap"><a href="/">Home</a><span>Pricing Tables</span></div>
+                                <div class="breadcrumbs fl-wrap"><a href="/">Home</a><span>Privacy Policy</span></div>
                             </div>
                         </div>
                         <div class="header-sec-link">
@@ -22,8 +22,34 @@
                     </section>
                     <!--  section  end-->
                     <section   id="sec1" data-scrollax-parent="true">
-                        Privacy and policy
-                    </section>
+
+
+                    <table class="table">
+  <thead class="thead-dark table table-bordered">
+    <tr>
+      <th scope="col">Sr.</th>
+      <th scope="col">Privacy Policy</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>1-<b><span class="footer-logo-text"><strong style="color:#4DB7FE;">Trade</strong> <strong style="color:#4DB7FE;">My</strong> <strong style="color:#4DB7FE;">Deal</strong></b> is committed to safeguarding the privacy of its Users.</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>All our users are requested to read the following Privacy Policy to have a complete understanding regarding how their personal & business information will be treated,<br>
+      as they associate themselves with <b><span class="footer-logo-text"><strong style="color:#4DB7FE;">Trade</strong> <strong style="color:#4DB7FE;">My</strong> <strong style="color:#4DB7FE;">Deal</strong></b> and make full use of our services to further their business interests. </td>
+    </tr>
+ 
+  </tbody>
+</table>
+
+</section>
+               
+               
+               
+               
                 </div>
                 <!--content end-->
             </div>

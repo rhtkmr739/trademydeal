@@ -11,7 +11,7 @@
                         <div class="container">
                             <div class="dashboard-breadcrumbs breadcrumbs"><a href="#">Home</a><span>User dashboard page</span></div>
                             <!--Tariff Plan menu-->
-                            <div   class="tfp-btn"><span>Membership Name : </span> <strong>Business Booaster</strong></div>
+                            <div   class="tfp-btn"><span>Membership Name : </span> <strong>FREE MEMBER</strong></div>
                             <div class="tfp-det">
                                 <p>You Are on <a href="#">Extended</a> . Use link bellow to view details or upgrade. </p>
                                 <a href="#" class="tfp-det-btn color2-bg">Details</a>
@@ -36,9 +36,30 @@
                                                     <!--  dashboard-header-stats-item -->
                                                     <div class="swiper-slide">
                                                         <div class="dashboard-header-stats-item">
+                                                            <i class="fal fa-chart-bar"></i>
+                                                            Total Monthly Leads
+                                                            <span>0</span>	
+                                                        </div>
+                                                    </div>
+                                                      <div class="swiper-slide">
+                                                        <div class="dashboard-header-stats-item">
+                                                            <i class="fal fa-chart-bar"></i>
+                                                            Purchased Leads
+                                                            <span>0</span>	
+                                                        </div>
+                                                    </div>
+                                                      <div class="swiper-slide">
+                                                        <div class="dashboard-header-stats-item">
+                                                            <i class="fal fa-chart-bar"></i>
+                                                            Remaining Leads
+                                                            <span>0</span>	
+                                                        </div>
+                                                    </div>
+                                                    <div class="swiper-slide">
+                                                        <div class="dashboard-header-stats-item">
                                                             <i class="fal fa-map-marked"></i>
                                                             Latest Buy Leads	
-                                                            <span>1054</span>
+                                                            <span>1998054</span>
                                                         </div>
                                                     </div>
                                                     <!--  dashboard-header-stats-item end -->
@@ -46,8 +67,8 @@
                                                     <div class="swiper-slide">
                                                         <div class="dashboard-header-stats-item">
                                                             <i class="fal fa-chart-bar"></i>
-                                                            Product/ Services
-                                                            <span>40</span>	
+                                                           Your Product/ Services
+                                                            <span>0</span>	
                                                         </div>
                                                     </div>
                                                     <!--  dashboard-header-stats-item end -->
@@ -56,7 +77,7 @@
                                                         <div class="dashboard-header-stats-item">
                                                             <i class="fal fa-comments-alt"></i>
                                                             Business Details
-                                                            <span>79</span>	
+                                                            <span>0</span>	
                                                         </div>
                                                     </div>
                                                     <!--  dashboard-header-stats-item end -->
@@ -146,6 +167,10 @@
                          <div class="col-md-9">
                                 <div class="dashboard-title fl-wrap">
                                     <h3>Your Analytics</h3>
+                                    <marquee attribute_name = "attribute_value"....more attributes>
+  <h6 style="color:#FF0000";>Dear Free Member, Kindly Visit the  link (<a href="https://trademydeal.com/plans">View Plans</a>) to register your company to Deal World Wide Buyers for your products. </h6>
+
+</marquee>
                                 </div>
                                 <!-- list-single-facts -->                               
                                 <div class="list-single-facts fl-wrap">
@@ -157,7 +182,7 @@
                                                     <i class="fal fa-chart-bar"></i>
                                                     <div class="milestone-counter">
                                                         <div class="stats animaper">
-                                                            <div class="num" data-content="0" data-num="1054">0</div>
+                                                            <div class="num" data-content="0" data-num="1998054">0</div>
                                                         </div>
                                                     </div>
                                                     <h6>Latest Buy Leads</h6>
@@ -177,7 +202,7 @@
                                                     <i class="fal fa-comments-alt"></i>
                                                     <div class="milestone-counter">
                                                         <div class="stats animaper">
-                                                            <div class="num" data-content="0" data-num="40">0%</div>
+                                                            <div class="num" data-content="0" data-num="0">0%</div>
                                                         </div>
                                                     </div>
                                                     <h6>Products/Services</h6>
@@ -197,7 +222,7 @@
                                                     <i class="fal fa-envelope-open-dollar"></i>
                                                     <div class="milestone-counter">
                                                         <div class="stats animaper">
-                                                            <div class="num" data-content="0" data-num="125">0</div>
+                                                            <div class="num" data-content="0" data-num="0">0</div>
                                                         </div>
                                                     </div>
                                                     <h6>Contact / Business Detail </h6>

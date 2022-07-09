@@ -150,4 +150,46 @@ class Sellerdashboard extends Component
     }
     
 
+    public function getPurchasedLeads(Request $request){
+        try{
+            
+             $getVerifiedPurchasedLeadsForSellerDetails =  DB::select("call uspGetVerifiedPurchasedLeadsForSeller(".Auth::user()->id.")");
+
+             if($getVerifiedPurchasedLeadsForSellerDetails){
+                return view('seller.purchase-leads',['getVerifiedPurchasedLeadsForSellerDetails'=>$getVerifiedPurchasedLeadsForSellerDetails]);
+             }else{
+                return redirect()->back()
+                ->withErrors(['error' => 'No purchased leads found.']);
+             }
+             
+              
+        }catch (\Exception $ex) {
+            // print_r($ex->getMessage()); exit();
+            return redirect()->back()
+            ->withErrors(['error' => 'No catalog found.']);
+        }
+    }
+
+    
+    public function getVerifiedLeads(Request $request){
+        try{
+            
+             $getVerifiedNotPurchasedLeadsDetails =  DB::select("call uspGetVerifiedNotPurchasedLeads()");
+
+             if($getVerifiedNotPurchasedLeadsDetails){
+                return view('seller.verified-leads-not-purchased',['getVerifiedNotPurchasedLeadsDetails'=>$getVerifiedNotPurchasedLeadsDetails]);
+             }else{
+                return redirect()->back()
+                ->withErrors(['error' => 'No purchased leads found.']);
+             }
+             
+              
+        }catch (\Exception $ex) {
+            // print_r($ex->getMessage()); exit();
+            return redirect()->back()
+            ->withErrors(['error' => 'No catalog found.']);
+        }
+    }
+
+
 }

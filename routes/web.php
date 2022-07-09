@@ -80,6 +80,15 @@ Route::middleware(['auth:sanctum', 'verified', 'isSellerUser', 'isSellerActive']
 Route::middleware(['auth:sanctum', 'verified', 'isSellerUser'])
         ->get('/restrict-account',  [Sellerdashboard::class, 'restrictAccount']);
 
+// Seller route for get verified all leads
+Route::middleware(['auth:sanctum', 'verified', 'isSellerUser', 'isSellerActive'])
+->get('/seller/verified-leads',  [Sellerdashboard::class, 'getVerifiedLeads']);
+
+// Seller route for get purchased all leads
+Route::middleware(['auth:sanctum', 'verified', 'isSellerUser', 'isSellerActive'])
+->get('/seller/purchased-leads',  [Sellerdashboard::class, 'getPurchasedLeads']);
+
+
         
  // Seller route for catalog
  Route::middleware(['auth:sanctum', 'verified'])

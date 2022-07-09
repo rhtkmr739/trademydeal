@@ -119,20 +119,35 @@
                                 <!-- dashboard-list-box--> 
                                 <div class="dashboard-list-box  fl-wrap">
                                 @foreach($getVerifiedNotPurchasedLeadsDetails as $lead)
-                                    <!-- dashboard-list -->    
-                                    <div class="dashboard-list fl-wrap">
-                                        <div class="dashboard-message">
+                                      
+                                     <!-- profile-edit-container--> 
+                                <div class="profile-edit-container fl-wrap block_box">
+                                    <!-- booking-list--> 
+                                    <div class="booking-list">
+                                        <div class="booking-list-message">
                                             <div class="booking-list-contr">
-                                                <a href="#" class="color-bg tolt" data-microtip-position="left" data-tooltip="Purchase Leads"><i class="far fa-shopping-cart"></i></a>
+                                            <a href="javascript:void(0)" class="color-bg tolt purchase-lead-btn" id="lead-{{$lead->lead_id}}" data-microtip-position="left" data-tooltip="Purchase Leads"><i class="far fa-shopping-cart"></i></a>
                                             </div>
-                                            <div class="dashboard-message-text">
+                                            <div class="booking-list-message-avatar">
                                                 <img src="/theme/images/trade-logo.jpg" alt="">
-                                                <h4><a href="listing-single.html">{{$lead->lead_title}}</a></h4>
-                                                <div class="geodir-category-location clearfix"><a href="#">BY : {{$lead->contact_name}}, FROM :  {{$lead->stateName}}, {{$lead->countryName}}</a></div>
+                                            </div>
+                                            <span class="booking-list-new green-bg">New</span>
+                                            <div class="booking-list-message-text col-md-10">
+                                                <h4 class="booking-text">{{$lead->lead_title}}</h4>
+                                                <div class="booking-details fl-wrap">
+                                                    <span class="booking-title">Contact Name :</span>
+                                                    <span class="booking-text"><a href="listing-sinle.html">{{$lead->contact_name}}</a></span>
+                                                </div>
+                                                <div class="booking-details fl-wrap">
+                                                    <span class="booking-title">Location :</span>   
+                                                    <span class="booking-text">{{$lead->stateName}}, {{$lead->countryName}}</span>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- dashboard-list end-->   
+                                    <!-- dashboard-list end--> 										
+                                </div>
+                                <!-- profile-edit-container end-->   
                                     @endforeach                                     
                                 </div>
                                 <!-- dashboard-list-box end--> 
@@ -156,6 +171,8 @@
             </div>
             <!-- wrapper end-->
 
-    <script src="{{ asset('theme/js/charts.js') }}"></script>
-    <script src="{{ asset('theme/js/dashboard.js') }}"></script>
-@include('common.foot')   
+
+@include('common.foot')
+<script src="{{ asset('theme/js/charts.js') }}"></script>
+<script src="{{ asset('theme/js/dashboard.js') }}"></script>
+<script src="{{ asset('theme/js/seller.js') }}"></script>

@@ -192,4 +192,21 @@ class Sellerdashboard extends Component
     }
 
 
+    public function purchaseLead(Request $request){
+        try{
+             $purchaseLead =  DB::select("call uspPurchasedLeadBySeller(".$request->leadId.",".Auth::user()->id.")");
+             if(isset($purchaseLead[0])){
+                return ["reponseStatus"=>true,"responseData"=>$purchaseLead[0]];
+             }else{
+                return ["reponseStatus"=>false,"responseData"=>'No data found of current seller!'];
+             }
+             
+              
+        }catch (\Exception $ex) {
+             //print_r($ex->getMessage()); exit();
+            return redirect()->back()
+            ->withErrors(['error' => 'No catalog found.']);
+        }
+    }
+
 }

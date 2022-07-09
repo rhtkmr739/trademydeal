@@ -18,6 +18,7 @@
         <link type="text/css" rel="stylesheet" href="{{ asset('theme/css/dashboard-style.css') }}">
         <link type="text/css" rel="stylesheet" href="{{ asset('theme/css/toastr.css') }}">
         <link type="text/css" rel="stylesheet" href="{{ asset('theme/css/animate.min.css') }}">
+        <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'></link>   
         <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
         <!--=============== favicons ===============-->
         <link rel="shortcut icon" href="images/favicon.ico">

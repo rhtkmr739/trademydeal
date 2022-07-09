@@ -119,3 +119,63 @@ $(document).ready(function() {
         
     });
 });
+
+$(document).ready(function() {
+    $('.purchase-lead-btn').on('click',function(){
+        let src = "/seller/purchase-lead";
+        let leadId = $(this).attr('id');
+        leadId = leadId.split('-');
+        if(!leadId[1]){
+            console.log('lead id is not valid');
+            return;
+        }else{
+          
+            swal({
+                title: "Are you sure?",
+                text: "As per your current subscription plan your lead purchasing limit is 2 and after purchasing it will get deduct by 1",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+              })
+              .then((willDelete) => {
+                if (willDelete) {
+                    $.ajax({
+                        url: src,
+                        dataType: "json",
+                        method:'post',
+                        data: {
+                            "_token": $('meta[name="csrf-token"]').attr('content'),
+                            leadId : leadId[1]
+                        },
+                        success: function(response) {
+                            if(response.reponseStatus){
+                                swal(response.responseData.response, {
+                                    icon: "success",
+                                  });
+                                  window.location.reload();
+                            }else{
+                                swal(response.responseData, {
+                                    icon: "error",
+                                  });
+                            }
+                           
+                        },
+                        error: function (request, status, error) {
+                            swal({  
+                                title: " Oops!",  
+                                text: " Something went wrong, Please try again later!",  
+                                icon: "error",  
+                                button: "close",  
+                              });  
+                        }
+                    });
+
+                  
+                }
+              });
+              
+        }
+        
+        
+    });
+});

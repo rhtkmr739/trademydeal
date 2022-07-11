@@ -124,6 +124,7 @@ $(document).ready(function() {
     $('.purchase-lead-btn').on('click',function(){
         let src = "/seller/purchase-lead";
         let leadId = $(this).attr('id');
+        let noteMessage = "As per your current subscription plan your lead purchasing limit is "+$("#max-lead-purchase-limit").text()+" in which you have already used "+$("#current-lead-purchase-count").text()+" and remaining lead you can purchase is "+$("#remaining-lead-purchase-count").text()+" after purchasing selected lead then will get deduct by 1 from remaining leads limit."
         leadId = leadId.split('-');
         if(!leadId[1]){
             console.log('lead id is not valid');
@@ -132,10 +133,11 @@ $(document).ready(function() {
           
             swal({
                 title: "Are you sure?",
-                text: "As per your current subscription plan your lead purchasing limit is 2 and after purchasing it will get deduct by 1",
+                text: noteMessage,
                 icon: "warning",
                 buttons: true,
                 dangerMode: true,
+                buttons: ["Cancel", "Proceed to purchase"],
               })
               .then((willDelete) => {
                 if (willDelete) {

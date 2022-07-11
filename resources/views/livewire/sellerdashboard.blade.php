@@ -7,125 +7,7 @@
                 <!-- content-->
                 <div class="content">
                     <!--  section  -->
-                    <section class="parallax-section dashboard-header-sec gradient-bg" data-scrollax-parent="true">
-                        <div class="container">
-                            <div class="dashboard-breadcrumbs breadcrumbs"><a href="#">Home</a><span>Seller Dashboard</span></div>
-                            <!--Tariff Plan menu-->
-                            <div   class="tfp-btn"><span>Membership Name : </span> <strong>{{session('userdetail')[0]->userSubscriptionPlanName}} MEMBER</strong></div>
-                            <div class="tfp-det">
-                                <p>You Are on <a href="#">Extended</a> . Use link bellow to view details or upgrade. </p>
-                                <a href="#" class="tfp-det-btn color2-bg">Details</a>
-                            </div>
-                            <!--Tariff Plan menu end-->
-                            <div class="dashboard-header_conatiner fl-wrap dashboard-header_title">
-                                <h1>Welcome, <span>{{session('userdetail')[0]->userCompanyName}}</span></h1>
-                            </div>
-                        </div>
-                        <div class="clearfix"></div>
-                        <div class="dashboard-header fl-wrap">
-                            <div class="container">
-                                <div class="dashboard-header_conatiner fl-wrap">
-                                    <div class="dashboard-header-avatar">
-                                        <img src="{{ asset('theme/images/avatar/1.jpg') }}" alt="">
-                                        <a href="dashboard-myprofile.html" class="color-bg edit-prof_btn"><i class="fal fa-edit"></i></a>
-                                    </div>
-                                    <div class="dashboard-header-stats-wrap">
-                                        <div class="dashboard-header-stats">
-                                            <div class="swiper-container">
-                                                <div class="swiper-wrapper">
-                                                    <!--  dashboard-header-stats-item -->
-                                                 
-                                                    <!--  dashboard-header-stats-item end -->
-                                                    <!--  dashboard-header-stats-item -->
-                                                      <div class="swiper-slide">
-                                                        <div class="dashboard-header-stats-item">
-                                                            <i class="fal fa-chart-bar"></i>
-                                                            Total Monthly Leads
-                                                            <span>10</span>	
-                                                        </div>
-                                                    </div>
-                                                      <div class="swiper-slide">
-                                                        <div class="dashboard-header-stats-item">
-                                                            <i class="fal fa-chart-bar"></i>
-                                                            Purchased Leads
-                                                            <span>0</span>	
-                                                        </div>
-                                                    </div>
-                                                      <div class="swiper-slide">
-                                                        <div class="dashboard-header-stats-item">
-                                                            <i class="fal fa-chart-bar"></i>
-                                                            Remaining Leads
-                                                            <span>10</span>	
-                                                        </div>
-                                                    </div>
-                                                       <div class="swiper-slide">
-                                                        <div class="dashboard-header-stats-item">
-                                                            <i class="fal fa-map-marked"></i>
-                                                            Latest Buy Leads	
-                                                            <span>1054</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="swiper-slide">
-                                                        <div class="dashboard-header-stats-item">
-                                                            <i class="fal fa-chart-bar"></i>
-                                                            Product/ Services
-                                                            <span>40</span>	
-                                                        </div>
-                                                    </div>
-                                                    <!--  dashboard-header-stats-item end -->
-                                                    <!--  dashboard-header-stats-item -->
-                                                    <div class="swiper-slide">
-                                                        <div class="dashboard-header-stats-item">
-                                                            <i class="fal fa-comments-alt"></i>
-                                                            Business Details
-                                                            <span>79</span>	
-                                                        </div>
-                                                    </div>
-                                                    <!--  dashboard-header-stats-item end -->
-                                                    <!--  dashboard-header-stats-item -->
-                                                    <div class="swiper-slide">
-                                                        <div class="dashboard-header-stats-item">
-                                                            <i class="fal fa-heart"></i>
-                                                            Total Viewed Leads
-                                                            <span>0</span>	
-                                                        </div>
-                                                    </div>
-                                                    <!--  dashboard-header-stats-item end -->
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--  dashboard-header-stats  end -->
-                                        <div class="dhs-controls">
-                                            <div class="dhs dhs-prev"><i class="fal fa-angle-left"></i></div>
-                                            <div class="dhs dhs-next"><i class="fal fa-angle-right"></i></div>
-                                        </div>
-                                    </div>
-                                    <!--  dashboard-header-stats-wrap end -->
-                                    <a href="/seller/createProduct" class="add_new-dashboard">Add Product <i class="fal fa-layer-plus"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="gradient-bg-figure" style="right:-30px;top:10px;"></div>
-                        <div class="gradient-bg-figure" style="left:-20px;bottom:30px;"></div>
-                        <div class="circle-wrap" style="left:120px;bottom:120px;" data-scrollax="properties: { translateY: '-200px' }">
-                            <div class="circle_bg-bal circle_bg-bal_small"></div>
-                        </div>
-                        <div class="circle-wrap" style="right:420px;bottom:-70px;" data-scrollax="properties: { translateY: '150px' }">
-                            <div class="circle_bg-bal circle_bg-bal_big"></div>
-                        </div>
-                        <div class="circle-wrap" style="left:420px;top:-70px;" data-scrollax="properties: { translateY: '100px' }">
-                            <div class="circle_bg-bal circle_bg-bal_big"></div>
-                        </div>
-                        <div class="circle-wrap" style="left:40%;bottom:-70px;"  >
-                            <div class="circle_bg-bal circle_bg-bal_middle"></div>
-                        </div>
-                        <div class="circle-wrap" style="right:40%;top:-10px;"  >
-                            <div class="circle_bg-bal circle_bg-bal_versmall" data-scrollax="properties: { translateY: '-350px' }"></div>
-                        </div>
-                        <div class="circle-wrap" style="right:55%;top:90px;"  >
-                            <div class="circle_bg-bal circle_bg-bal_versmall" data-scrollax="properties: { translateY: '-350px' }"></div>
-                        </div>
-                    </section>
+                    @include('common.seller.top')
                     <!--  section  end-->
                     <!--  section  -->
                     <section class="gray-bg main-dashboard-sec" id="sec1">
@@ -136,7 +18,7 @@
                             <!-- dashboard content-->
                             <div class="col-md-9">
                                 <div class="dashboard-title fl-wrap">
-                                    <h3>Your Analytics</h3>
+                                    <h3>YOUR ANALYTICS</h3>
                                 </div>
                                 <!-- list-single-facts -->                               
                                 <div class="list-single-facts fl-wrap">
@@ -148,10 +30,10 @@
                                                     <i class="fal fa-chart-bar"></i>
                                                     <div class="milestone-counter">
                                                         <div class="stats animaper">
-                                                            <div class="num" data-content="0" data-num="1054">0</div>
+                                                            <div class="num" data-content="0" data-num="{{session('sellerProfileCounts')[0]->remainingLeadPurchaseCount}}">0</div>
                                                         </div>
                                                     </div>
-                                                    <h6>Latest Buy Leads</h6>
+                                                    <h6>Remaining Lead Limit</h6>
                                                 </div>
                                                 <div class="stat-wave">
                                                     <svg viewbox="0 0 100 25">
@@ -168,10 +50,10 @@
                                                     <i class="fal fa-comments-alt"></i>
                                                     <div class="milestone-counter">
                                                         <div class="stats animaper">
-                                                            <div class="num" data-content="0" data-num="40">0%</div>
+                                                            <div class="num" data-content="0" data-num="{{session('sellerProfileCounts')[0]->currentLeadPurchaseCount}}">0%</div>
                                                         </div>
                                                     </div>
-                                                    <h6>Products/Services</h6>
+                                                    <h6>Current Purchased Lead Count</h6>
                                                 </div>
                                                 <div class="stat-wave">
                                                     <svg viewbox="0 0 100 25">
@@ -188,10 +70,10 @@
                                                     <i class="fal fa-envelope-open-dollar"></i>
                                                     <div class="milestone-counter">
                                                         <div class="stats animaper">
-                                                            <div class="num" data-content="0" data-num="125">0</div>
+                                                            <div class="num" data-content="0" data-num="{{session('sellerProfileCounts')[0]->maxLeadPurchaseLimit}}">0</div>
                                                         </div>
                                                     </div>
-                                                    <h6>Contact / Business Detail </h6>
+                                                    <h6>Maximum Lead Limit </h6>
                                                 </div>
                                                 <div class="stat-wave">
                                                     <svg viewbox="0 0 100 25">

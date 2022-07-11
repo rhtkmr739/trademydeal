@@ -5,17 +5,18 @@
         <div class="user-profile-menu-wrap fl-wrap block_box">
             <!-- user-profile-menu-->
             <div class="user-profile-menu">
-                <h3>Main</h3>
+                <h3>USER PROFILE</h3>
                 <ul class="no-list-style">
                     <li><a href="/sellerdashboard" class="user-profile-act"><i class="fal fa-chart-line"></i>Dashboard</a></li>
+                    <li><a href="dashboard-myprofile.html"><i class="fal fa-user-edit"></i> Edit profile</a></li>
+                    <li><a href="dashboard-password.html"><i class="fal fa-key"></i>Change Password</a></li>
                     <li><a href="/seller/catalog/{{session('userdetail')[0]->userCatalogUrl}}"><i class="fal fa-rss"></i>Your Catalog <span>7</span></a></li>
-                    <li><a href="#"><i class="fal fa-user-edit"></i> Edit profile</a></li>
-                    <li><a href="#"><i class="fal fa-key"></i>Change Password</a></li>
+                    
                 </ul>
             </div>
             <!-- user-profile-menu end-->
             <div class="user-profile-menu">
-            <h3>Lead Information</h3>
+            <h3>LEAD INFORMATION</h3>
                 <ul class="no-list-style">
                     <li><a href="/seller/verified-leads"><i class="fal fa-check"></i>Verified Leads <span>7</span></a></li>
                     <li><a href="/seller/purchased-leads" class="user-profile-act"><i class="fal fa-chart-line"></i>Purchased Leads</a></li>
@@ -23,7 +24,11 @@
             </div>
             <!-- user-profile-menu-->
             <div class="user-profile-menu">
+<<<<<<< HEAD
                 <h3>Services</h3>
+=======
+                <h3>LISTING</h3>
+>>>>>>> verified lead and purchase lead
                 <ul  class="no-list-style">
                     <li><a href="#"> <i class="fal fa-calendar-check"></i>  My Subscriptions <span>2</span></a></li>
                 </ul>

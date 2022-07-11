@@ -13,7 +13,7 @@
                     <section class="gray-bg main-dashboard-sec" id="sec1">
                         <div class="container">
                             <!--  dashboard-menu-->
-                            @include('common.seller.sidebar')
+                            @include('common.seller.sidebar') 
                             <!-- dashboard-menu  end-->
                             <!-- dashboard content-->
                             <div class="col-md-9">

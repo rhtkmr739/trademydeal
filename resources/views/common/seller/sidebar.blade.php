@@ -9,8 +9,8 @@
                 <ul class="no-list-style">
                     <li><a href="/sellerdashboard" class="user-profile-act"><i class="fal fa-chart-line"></i>Dashboard</a></li>
                     <li><a href="/seller/catalog/{{session('userdetail')[0]->userCatalogUrl}}"><i class="fal fa-rss"></i>Your Catalog <span>7</span></a></li>
-                    <li><a href="dashboard-myprofile.html"><i class="fal fa-user-edit"></i> Edit profile</a></li>
-                    <li><a href="dashboard-password.html"><i class="fal fa-key"></i>Change Password</a></li>
+                    <li><a href="#"><i class="fal fa-user-edit"></i> Edit profile</a></li>
+                    <li><a href="#"><i class="fal fa-key"></i>Change Password</a></li>
                 </ul>
             </div>
             <!-- user-profile-menu end-->
@@ -26,9 +26,6 @@
                 <h3>Listings</h3>
                 <ul  class="no-list-style">
                     <li><a href="#"> <i class="fal fa-calendar-check"></i>  My Subscriptions <span>2</span></a></li>
-                    <li><a href="#"><i class="fal fa-comments-alt"></i> V-Trust Certificate</a></li>
-                    <li><a href="#"><i class="fal fa-file-plus"></i> Post Requirements</a></li>
-                                                                    
                 </ul>
             </div>
             <!-- user-profile-menu end-->                                        

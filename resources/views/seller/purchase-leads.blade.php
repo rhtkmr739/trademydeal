@@ -11,14 +11,14 @@
                         <div class="container">
                             <div class="dashboard-breadcrumbs breadcrumbs"><a href="#">Home</a><span>Seller Purchased Leads</span></div>
                             <!--Tariff Plan menu-->
-                            <div   class="tfp-btn"><span>Membership Name : </span> <strong>{{session('userdetail')[0]->userSubscriptionPlanName}}</strong></div>
+                            <div   class="tfp-btn"><span>Membership Name : </span> <strong>{{session('userdetail')[0]->userSubscriptionPlanName}} MEMBER</strong></div>
                             <div class="tfp-det">
                                 <p>You Are on <a href="#">Extended</a> . Use link bellow to view details or upgrade. </p>
                                 <a href="#" class="tfp-det-btn color2-bg">Details</a>
                             </div>
                             <!--Tariff Plan menu end-->
                             <div class="dashboard-header_conatiner fl-wrap dashboard-header_title">
-                                <h1>Hi, <span>{{session('userdetail')[0]->userCompanyName}}</span></h1>
+                                <h1>Welcome, <span>{{session('userdetail')[0]->userCompanyName}}</span></h1>
                             </div>
                         </div>
                         <div class="clearfix"></div>

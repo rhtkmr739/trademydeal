@@ -27,6 +27,10 @@
                 <h3>SERVICES</h3>
                 <ul  class="no-list-style">
                     <li><a href="#"> <i class="fal fa-calendar-check"></i>  My Subscriptions <span>2</span></a></li>
+                <h3>SERVICE</h3>
+                <ul  class="no-list-style">
+                    <li><a href="#"> <i class="fal fa-calendar-check"></i>  My Subscriptions <span>2</span></a></li>
+                                                                    
                 </ul>
             </div>
             <!-- user-profile-menu end-->                                        

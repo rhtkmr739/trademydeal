@@ -24,11 +24,7 @@
             </div>
             <!-- user-profile-menu-->
             <div class="user-profile-menu">
-<<<<<<< HEAD
-                <h3>Services</h3>
-=======
-                <h3>LISTING</h3>
->>>>>>> verified lead and purchase lead
+                <h3>SERVICES</h3>
                 <ul  class="no-list-style">
                     <li><a href="#"> <i class="fal fa-calendar-check"></i>  My Subscriptions <span>2</span></a></li>
                 </ul>

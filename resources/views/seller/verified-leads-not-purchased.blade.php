@@ -19,15 +19,15 @@
                             <div class="col-md-9">
                             <div class="box-widget-item fl-wrap">
                                 <div class="search-widget">
-                                    <form action="#" class="fl-wrap">
-                                        <input name="se" id="se" type="text" class="search" placeholder="SEARCH VERIFIED LEADS.." value="" />
-                                        <button class="search-submit color2-bg" id="submit_btn"><i class="fal fa-search"></i> </button>
-                                    </form>
+                                   
+                                        <input name="se" id="search-verified-lead-text" type="text" class="search" placeholder="SEARCH VERIFIED LEADS.." value="" />
+                                        <button class="search-submit color2-bg" id="search-verified-lead-btn"><i class="fal fa-search"></i> </button>
+                                    
                                 </div>
                             </div>
                                 
                                 <!-- dashboard-list-box--> 
-                                <div class="dashboard-list-box  fl-wrap">
+                                <div class="dashboard-list-box  fl-wrap" id="seller-verified-lead-list">
                                 @foreach($getVerifiedNotPurchasedLeadsDetails as $lead)
                                       
                                     <!-- list-single-header -->
@@ -49,7 +49,7 @@
                                                 <span>{{$lead->category_name}}</span>
                                             </a>
                                             <div class="list-single-author"> <a href="javascript:void(0)"><span class="author_avatar"> <img alt='' src='/theme/images/trade-logo.jpg'>  </span>By  {{$lead->contact_name}}</a></div>
-                                            <div class="geodir_status_date gsd_open"><i class="fal fa-lock-open"></i>Available Now</div>
+                                            <div class="geodir_status_date gsd_open">Available Now</div>
                                             <div class="list-single-stats">
                                                 <ul class="no-list-style">
                                                     <li><span class="viewed-counter"><i class="fas fa-eye"></i> Viewed -  156 </span></li>
@@ -63,14 +63,8 @@
                                     @endforeach                                     
                                 </div>
                                 <!-- dashboard-list-box end--> 
-                                <div class="pagination">
-                                    <a href="#" class="prevposts-link"><i class="fas fa-caret-left"></i><span>Prev</span></a>
-                                    <a href="#">1</a>
-                                    <a href="#" class="current-page">2</a>
-                                    <a href="#">3</a>
-                                    <a href="#">...</a>
-                                    <a href="#">7</a>
-                                    <a href="#" class="nextposts-link"><span>Next</span><i class="fas fa-caret-right"></i></a>
+                                <div class="load-more-section">
+                                <a href="javascript:void(0)" class="btn dec_btn color2-bg" data-limit="{{$limit}}" data-page="{{$page}}" id="load-more-verified-lead-btn">Load More Leads<i class="fal fa-arrow-down"></i></a>
                                 </div>
                             </div>
                             <!-- dashboard content end-->

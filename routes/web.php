@@ -84,6 +84,11 @@ Route::middleware(['auth:sanctum', 'verified', 'isSellerUser'])
 Route::middleware(['auth:sanctum', 'verified', 'isSellerUser', 'isSellerActive'])
 ->get('/seller/verified-leads',  [Sellerdashboard::class, 'getVerifiedLeads']);
 
+// Seller route for get verified all leads
+Route::middleware(['auth:sanctum', 'verified', 'isSellerUser', 'isSellerActive'])
+->post('/seller/search-load-more-seller-verified-lead',  [Sellerdashboard::class, 'searchLoadMoreSellerVerifiedLead']);
+
+
 // Seller route for get purchased all leads
 Route::middleware(['auth:sanctum', 'verified', 'isSellerUser', 'isSellerActive'])
 ->get('/seller/purchased-leads',  [Sellerdashboard::class, 'getPurchasedLeads']);

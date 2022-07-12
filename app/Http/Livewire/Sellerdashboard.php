@@ -173,15 +173,15 @@ class Sellerdashboard extends Component
     
     public function getVerifiedLeads(Request $request){
         try{
-            
-             $getVerifiedNotPurchasedLeadsDetails =  DB::select("call uspGetVerifiedNotPurchasedLeads()");
+            $limit = 5;
+            $offset = 0;
+            $getVerifiedNotPurchasedLeadsDetails =  DB::select("call uspGetVerifiedNotPurchasedLeads('',".$offset.",".$limit.")");
 
-             if($getVerifiedNotPurchasedLeadsDetails){
-                return view('seller.verified-leads-not-purchased',['getVerifiedNotPurchasedLeadsDetails'=>$getVerifiedNotPurchasedLeadsDetails]);
-             }else{
-                return redirect()->back()
-                ->withErrors(['error' => 'No purchased leads found.']);
-             }
+            if($getVerifiedNotPurchasedLeadsDetails){
+                return view('seller.verified-leads-not-purchased',['getVerifiedNotPurchasedLeadsDetails'=>$getVerifiedNotPurchasedLeadsDetails, 'page'=>1, 'limit'=>$limit]);
+            }else{
+                return redirect()->back()->withErrors(['error' => 'No verified leads found.']);
+            }
              
               
         }catch (\Exception $ex) {
@@ -191,14 +191,40 @@ class Sellerdashboard extends Component
         }
     }
 
-
+        
+    public function searchLoadMoreSellerVerifiedLead(Request $request){
+        try{
+            
+             $getSearchLoadMoreSellerVerifiedLead =  DB::select("call uspGetVerifiedNotPurchasedLeads('".$request->searchText."',".$request->offset.",".$request->limit.")");
+             //dd($getSearchLoadMoreSellerVerifiedLead);
+             if($getSearchLoadMoreSellerVerifiedLead){
+                $loadMoreEnable = (count($getSearchLoadMoreSellerVerifiedLead) < $request->limit) ? false : true; 
+                $returnHTML = view('seller.search-load-more')->with('getSearchLoadMoreSellerVerifiedLead', $getSearchLoadMoreSellerVerifiedLead)->render();
+                return response()->json(array('success' => true, 'html'=>$returnHTML, 'loadMoreEnable'=>$loadMoreEnable));
+             }else{
+                return response()->json(array('success' => false, 'html'=>'', 'loadMoreEnable'=>false));
+             }
+             
+              
+        }catch (\Exception $ex) {
+            // print_r($ex->getMessage()); exit();
+            return redirect()->back()
+            ->withErrors(['error' => 'No catalog found.']);
+        }
+    }
+    
     public function purchaseLead(Request $request){
         try{
              $purchaseLead =  DB::select("call uspPurchasedLeadBySeller(".$request->leadId.",".Auth::user()->id.")");
              if(isset($purchaseLead[0])){
-                return ["reponseStatus"=>true,"responseData"=>$purchaseLead[0]];
+                if($purchaseLead[0]->canPurchaseLead == 'Y'){
+                    return ["responseStatus"=>true,"responseData"=>$purchaseLead[0]->response];
+                }else{
+                    return ["responseStatus"=>false,"responseData"=>$purchaseLead[0]->response];
+                }
+               
              }else{
-                return ["reponseStatus"=>false,"responseData"=>'No data found of current seller!'];
+                return ["responseStatus"=>false,"responseData"=>'Unable to purchases lead, Please try later!'];
              }
              
               

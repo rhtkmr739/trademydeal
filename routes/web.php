@@ -13,6 +13,7 @@ use App\Http\Livewire\Product;
 use App\Http\Livewire\Admin\Dashboard;
 use App\Http\Livewire\Admin\Manageleads;
 use App\Http\Livewire\Admin\Employee;
+use App\Http\Controllers\SendEmailController;
 
 
 /*
@@ -195,3 +196,5 @@ Route::middleware(['auth:sanctum', 'verified','isEmployeeUser'])
 
 
 });
+
+Route::get('send-email', [SendEmailController::class, 'index']);

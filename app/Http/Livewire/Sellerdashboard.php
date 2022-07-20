@@ -152,11 +152,13 @@ class Sellerdashboard extends Component
 
     public function getPurchasedLeads(Request $request){
         try{
-            
-             $getVerifiedPurchasedLeadsForSellerDetails =  DB::select("call uspGetVerifiedPurchasedLeadsForSeller(".Auth::user()->id.")");
+
+            $limit = 5;
+            $offset = 0;
+             $getVerifiedPurchasedLeadsForSellerDetails =  DB::select("call uspGetVerifiedPurchasedLeadsForSeller(".Auth::user()->id.",'',".$offset.",".$limit.")");
 
              if($getVerifiedPurchasedLeadsForSellerDetails){
-                return view('seller.purchase-leads',['getVerifiedPurchasedLeadsForSellerDetails'=>$getVerifiedPurchasedLeadsForSellerDetails]);
+                return view('seller.purchase-leads',['getVerifiedPurchasedLeadsForSellerDetails'=>$getVerifiedPurchasedLeadsForSellerDetails,'page'=>1,'limit'=>$limit]);
              }else{
                 return redirect()->back()
                 ->withErrors(['error' => 'No purchased leads found.']);
@@ -164,7 +166,7 @@ class Sellerdashboard extends Component
              
               
         }catch (\Exception $ex) {
-            // print_r($ex->getMessage()); exit();
+            //print_r($ex->getMessage()); exit();
             return redirect()->back()
             ->withErrors(['error' => 'No catalog found.']);
         }
@@ -233,6 +235,28 @@ class Sellerdashboard extends Component
             return redirect()->back()
             ->withErrors(['error' => 'No catalog found.']);
         }
+    }
+
+    /*Added by shankar */
+    public function searchLoadMoreSellerPurchasedLead(Request $request){
+        try{
+            $getsearchLoadMoreSellerPurchasedLead = DB::select("call uspGetVerifiedPurchasedLeadsForSeller(".Auth::user()->id.",'".$request->searchText."',".$request->offset.",".$request->limit.")");
+           
+             if($getsearchLoadMoreSellerPurchasedLead){
+                $loadMoreEnable = (count($getsearchLoadMoreSellerPurchasedLead) < $request->limit) ? false : true;
+                $returnHTML = view('seller.search-load-more-purchased-lead')->with('getsearchLoadMoreSellerPurchasedLead',$getsearchLoadMoreSellerPurchasedLead)->render();
+                return response()->json(array('success' => true, 'html' => $returnHTML,
+                'loadMoreEnable' =>$loadMoreEnable));
+             }else{
+                return response()->json(array('success' => false, 'html' =>'','loadMoreEnable'=>$loadMoreEnable));
+             }
+
+
+        }catch (\Exception $ex) {
+           print_r($ex->getMessage()); exit();
+           return redirect()->back()
+           ->withErrors(['error' => 'No Data found.']);
+       }
     }
 
 }

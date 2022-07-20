@@ -98,6 +98,10 @@ Route::middleware(['auth:sanctum', 'verified', 'isSellerUser', 'isSellerActive']
 Route::middleware(['auth:sanctum', 'verified', 'isSellerUser', 'isSellerActive'])
         ->post('/seller/purchase-lead',  [Sellerdashboard::class, 'purchaseLead']);
 
+/*Added by shankar for load more option on purchase list */
+Route::middleware(['auth:sanctum','verified','isSellerUser','isSellerActive'])
+->post('/seller/search-load-more-seller-purchased-lead',[Sellerdashboard::class,'searchLoadMoreSellerPurchasedLead']);
+
         
  // Seller route for catalog
  Route::middleware(['auth:sanctum', 'verified'])

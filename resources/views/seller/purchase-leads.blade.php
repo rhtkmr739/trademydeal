@@ -19,14 +19,17 @@
                             <div class="col-md-9">
                             <div class="box-widget-item fl-wrap">
                                 <div class="search-widget">
-                                    <form action="#" class="fl-wrap">
+                                    <!-- <form action="#" class="fl-wrap">
                                         <input name="se" id="se" type="text" class="search" placeholder="SEARCH YOUR PURCHASED LEADS.." value="" />
                                         <button class="search-submit color2-bg" id="submit_btn"><i class="fal fa-search"></i> </button>
-                                    </form>
+                                    </form> -->
+
+                                    <input name="se" id="search-purchased-lead-text" type="text" class="search" placeholder="SEARCH VERIFIED LEADS.." value="" />
+                                        <button class="search-submit color2-bg" id="search-purchased-lead-btn"><i class="fal fa-search"></i> </button>
                                 </div>
                             </div>
                                 <!-- dashboard-list-box--> 
-                                <div class="dashboard-list-box  fl-wrap">
+                                <div class="dashboard-list-box  fl-wrap" id="seller-purchased-lead-list">
                                 @foreach($getVerifiedPurchasedLeadsForSellerDetails as $lead)
                                    
                                      <!-- list-single-header -->
@@ -61,7 +64,7 @@
                                     @endforeach                                     
                                 </div>
                                 <!-- dashboard-list-box end--> 
-                                <div class="pagination">
+                                <!-- <div class="pagination">
                                     <a href="#" class="prevposts-link"><i class="fas fa-caret-left"></i><span>Prev</span></a>
                                     <a href="#">1</a>
                                     <a href="#" class="current-page">2</a>
@@ -69,9 +72,12 @@
                                     <a href="#">...</a>
                                     <a href="#">7</a>
                                     <a href="#" class="nextposts-link"><span>Next</span><i class="fas fa-caret-right"></i></a>
-                                </div>
+                                </div> -->
                             </div>
                             <!-- dashboard content end-->
+                            <div class="load-more-section">
+                                <a href="javascript:void(0)" class="btn dec_btn color2-bg" data-limit="{{$limit}}" data-page="{{$page}}" id="load-more-purchased-lead-btn">Load More Leads<i class="fal fa-arrow-down"></i></a>
+                                </div>
                         </div>
                     </section>
                     <!--  section  end-->
@@ -84,3 +90,4 @@
     <script src="{{ asset('theme/js/charts.js') }}"></script>
     <script src="{{ asset('theme/js/dashboard.js') }}"></script>
 @include('common.foot')   
+<script src="{{ asset('theme/js/seller.js') }}"></script>

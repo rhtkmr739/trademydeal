@@ -13,6 +13,7 @@ use App\Http\Livewire\Product;
 use App\Http\Livewire\Admin\Dashboard;
 use App\Http\Livewire\Admin\Manageleads;
 use App\Http\Livewire\Admin\Employee;
+use App\Http\Livewire\Admin\Promotional;
 use App\Http\Controllers\SendEmailController;
 
 
@@ -154,9 +155,47 @@ Route::middleware(['auth:sanctum', 'verified','isAdminUser'])
 ->get('/employee-lists',  [Employee::class, 'getEmployeeList'])
 ->name('render');
 
+// Promotional user list page routes
+Route::middleware(['auth:sanctum', 'verified','isAdminUser'])
+->get('/promotional-users',  [Promotional::class, 'getPromotionalUsers'])
+->name('render');
 
+// Promotional email page routes
+Route::middleware(['auth:sanctum', 'verified','isAdminUser'])
+->get('/promotional-emails',  [Promotional::class, 'renderPromotionalEmailCenter'])
+->name('render');
+
+// Promotional groups page routes
+Route::middleware(['auth:sanctum', 'verified','isAdminUser'])
+->get('/promotional-groups',  [Promotional::class, 'getPromotionalGroups'])
+->name('render');
+
+// Promotional groups page routes
+Route::middleware(['auth:sanctum', 'verified','isAdminUser'])
+->post('/create-promotional-group',  [Promotional::class, 'createPromotionalGroup'])
+->name('render');
+
+// Promotional groups page routes
+Route::middleware(['auth:sanctum', 'verified','isAdminUser'])
+->post('/get-promotional-user-by-group-id',  [Promotional::class, 'getPromotionalUserByGroupId'])
+->name('render');
+
+
+// Admin route for sending mail otp 
+Route::middleware(['auth:sanctum', 'verified','isAdminUser'])
+->post('/send-mail-otp',  [SendEmailController::class, 'sendMailOTP']);
+
+// Admin route for verifying mail otp 
+Route::middleware(['auth:sanctum', 'verified','isAdminUser'])
+->post('/verify-mail-otp',  [SendEmailController::class, 'verifyMailOTP']);
+
+// Admin route for sending mail after verified OTP 
+Route::middleware(['auth:sanctum', 'verified','isAdminUser'])
+->post('/send-verified-mail',  [SendEmailController::class, 'sendVerifiedMail']);
 
 });
+
+
 
 
 // Employee USERS GROUP ROUTES LISTING

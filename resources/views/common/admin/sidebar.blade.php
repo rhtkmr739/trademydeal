@@ -50,6 +50,19 @@
                                             </ul>
                                         </div>
 
+                                        <div class="user-profile-menu">
+                                            <h3>PROMOTIONAL DETAILS</h3>
+                                            <ul  class="no-list-style">
+                                                <li><a href="/admin/promotional-groups"><i class="fal fa-users"></i>Manage Promotional Groups</a></li>
+                                            </ul>
+                                            <ul  class="no-list-style">
+                                                <li><a href="/admin/promotional-users"><i class="fal fa-user"></i>Manage Promotional Users</a></li>
+                                            </ul>
+                                            <ul  class="no-list-style">
+                                                <li><a href="/admin/promotional-emails"><i class="fal fa-envelope"></i>Manage Promotional Emails</a></li>
+                                            </ul>
+                                        </div>
+
                                         <!-- user-profile-menu end-->                                        
                                         <button class="logout_btn color2-bg">Log Out <i class="fas fa-sign-out"></i></button>
                                     </div>

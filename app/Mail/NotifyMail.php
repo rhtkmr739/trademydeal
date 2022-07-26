@@ -10,15 +10,19 @@ use Illuminate\Queue\SerializesModels;
 class NotifyMail extends Mailable
 {
     use Queueable, SerializesModels;
-
+    /**
+     * The mail contents.
+     *
+     */
+    protected $mailContent;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($mailContent)
     {
-        //
+        $this->mailContent = $mailContent;
     }
 
     /**
@@ -28,6 +32,8 @@ class NotifyMail extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.demoMail');
+        return $this->view('emails.demoMail')->with([
+            'mailContent' => $this->mailContent
+        ]);
     }
 }

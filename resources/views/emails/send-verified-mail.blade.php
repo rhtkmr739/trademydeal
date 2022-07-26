@@ -1,1 +1,1 @@
-{{$send-verified-mail}}
+{!! $mailContent !!}

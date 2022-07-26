@@ -89,8 +89,17 @@ $(document).ready(function () {
                 "groupId":groupId
             },
             success: function (response) {
+
                 if (response.success) {
-                    currentElement.parent().html(response.data)
+                    swal(response.data, {
+                        buttons: false,
+                        icon: "success",
+                        timer: 2000,
+                      }).then(function(){ 
+                        location.reload();
+                        }
+                     );
+                     
                 } else {
                     swal({
                         title: " Oops!",

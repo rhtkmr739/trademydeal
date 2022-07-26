@@ -17,15 +17,35 @@ class SendEmailController extends Controller
      
     public function index()
     {
-     
-      Mail::to('support@trademydeal.com')->send(new PromotionalMailOTPVerification());
+          $htmlContent = ' 
+               <html> 
+               <head> 
+                    <title>Welcome to Trademydeal</title> 
+               </head> 
+               <body> 
+                    <h1>Thanks you for joining with us!</h1> 
+                    <table cellspacing="0" style="border: 2px dashed #FB4314; width: 100%;"> 
+                         <tr> 
+                              <th>Name:</th><td>Trade my deal</td> 
+                         </tr> 
+                         <tr style="background-color: #e0e0e0;"> 
+                              <th>Email:</th><td>support@trademydeal.com</td> 
+                         </tr> 
+                         <tr> 
+                              <th>Website:</th><td><a href="http://www.trademydeal.com">www.trademydeal.com</a></td> 
+                         </tr> 
+                    </table> 
+               </body> 
+               </html>'; 
+        
+      Mail::to('rhtkmr739@gmail.com')->send(new NotifyMail($htmlContent));
  
       if (Mail::failures()) {
            return response()->json('Sorry! Please try again latter');
       }else{
            return response()->json('Great! Successfully send in your mail');
          }
-    } 
+    }  
 
     public function sendMailOTP()
     {

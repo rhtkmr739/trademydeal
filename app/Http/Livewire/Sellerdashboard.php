@@ -4,6 +4,8 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 
 use DB;
@@ -253,10 +255,68 @@ class Sellerdashboard extends Component
 
 
         }catch (\Exception $ex) {
-           print_r($ex->getMessage()); exit();
+           //print_r($ex->getMessage()); exit();
            return redirect()->back()
            ->withErrors(['error' => 'No Data found.']);
        }
+    }
+
+    //Function to view purchased-leads details on purchased-leads module
+    public function viewPurchasedLeadsDetails(Request $request){
+        try{
+            $getPurchasedLeadsViewDetails = DB::select("call uspPurchasedLeadBySeller(".$request->leadId.",".Auth::user()->id.")");
+
+        }catch(\Exception $ex){
+            print_r($ex->getMessage());exit();
+            return redirect()->back()->withErrors(['error'  =>'No Data Found']);
+        }
+    }
+
+
+    //function to load edit seller profile view
+    public function editSellerProfile(Request $request){
+        try{
+            $getSellerProfileData = DB::select("call uspGetCurrentUserDetails(".Auth::user()->id.",".session('userdetail')[0]->userType.")");
+          
+           return view('seller.edit-seller-profile',compact('getSellerProfileData'));
+           
+        }catch(\Exception $ex){
+            //print_r($ex->getMessage()); exit();
+            return redirect()->back()
+            ->withErrors(['error' => 'No Data Found']);
+        }
+    }
+
+    //Function to load change seller password view
+    public function changePassword(){
+       
+        return view('seller.change-seller-password');
+
+    }
+
+    //Function to update seller password
+    public function updateSellerPassword(Request $request){
+       
+         try{
+            $newPassword = Hash::make($request->newPassword);
+            
+
+            if(Hash::check($request->currentPassword,auth()->user()->password)){
+                $UpdateUserPassword = DB::select("call uspUpdateCurrentUserPassword(".Auth::user()->id.",'".$newPassword."')");
+                if($UpdateUserPassword[0]->success == 'Y'){
+                    return ["responseStatus"=>true,"responseData"=>$UpdateUserPassword[0]->message];
+                }else{
+                    return ["responseStatus"=>false,"responseData"=>$UpdateUserPassword[0]->message];
+                }                
+                
+            }else{
+                return ["responseStatus"=>false,"responseData"=>'Current password is not found in our record.'];;
+            }
+
+        }catch(\Exception $ex){
+            return redirect()->back()
+            ->withErrors(['error' => 'Something Went Wrong']);
+        }
     }
 
 }

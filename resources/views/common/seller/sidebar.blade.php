@@ -8,8 +8,9 @@
                 <h3>USER PROFILE</h3>
                 <ul class="no-list-style">
                     <li><a href="/sellerdashboard" class="user-profile-act"><i class="fal fa-chart-line"></i>Dashboard</a></li>
-                    <li><a href="dashboard-myprofile.html"><i class="fal fa-user-edit"></i> Edit profile</a></li>
-                    <li><a href="dashboard-password.html"><i class="fal fa-key"></i>Change Password</a></li>
+                    <li><a href="/seller/dashboard-myprofile"><i class="fal fa-user-edit"></i> Edit profile</a></li>
+                    <!-- <li><a href="dashboard-password.html"><i class="fal fa-key"></i>Change Password</a></li> -->
+                    <li><a href="/seller/change-password"><i class="fal fa-key"></i>Change Password</a></li>
                     <li><a href="/seller/catalog/{{session('userdetail')[0]->userCatalogUrl}}"><i class="fal fa-store"></i>Your Catalog <span>7</span></a></li>
                     
                 </ul>

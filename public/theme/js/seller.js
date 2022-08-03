@@ -293,3 +293,69 @@ $(document).ready(function() {
     });
 });
 
+
+$(document).ready(function() {
+    $('#seller-purchased-lead-list').on('click','.view-lead-btn',function(){
+       let src = "/seller/view-purchased-lead-details";
+       let leadId = $(this).attr('id');
+       leadId = leadId.split('-');
+       if(!leadId[1]){
+        alert('Lead is not valid');
+       }else{
+            $.ajax({
+                url: src,
+                dataType: "json",
+                method: 'post',
+                data: {
+                    "_token": $('meta[name="csrf-token"]').attr('content'),
+                    leadId : leadId[1]
+                },
+                success:function(response){
+                    alert(response);
+                }
+            });
+       }
+    });
+});
+
+//JQuery Code for password and confirm password in seller Change Password module
+$(document).ready(function(){
+    $('#change-seller-password').on('click',function(event){
+        event.preventDefault();
+        let currentPassword = $('#current_password').val();
+        let newPassword     = $('#new_password').val();
+        let confirmPassword = $('#conf_new_password').val();
+        let src = "/seller/changePassword";
+
+        if(newPassword != confirmPassword){
+            swal({
+                title: "Oops!",
+                text:  "Password and confirm password does not matched",
+                icon:   "error",
+                button: "ok"
+            });
+        }else{
+            $.ajax({
+                url: src,
+                method: "POST",
+                data:{
+                    "_token": $('meta[name="csrf-token"]').attr('content'),
+                    currentPassword: currentPassword,
+                    newPassword: newPassword
+                },
+                success:function(response){
+                    if(response.responseStatus){
+                        swal(response.responseData, {
+                            icon: "success",
+                          });
+                    }else{
+                        swal(response.responseData, {
+                            icon: "error",
+                          });
+                    }
+                }
+            });
+        }
+        
+    });
+});

@@ -98,11 +98,29 @@ Route::middleware(['auth:sanctum', 'verified', 'isSellerUser', 'isSellerActive']
 Route::middleware(['auth:sanctum', 'verified', 'isSellerUser', 'isSellerActive'])
         ->post('/seller/purchase-lead',  [Sellerdashboard::class, 'purchaseLead']);
 
-/*Added by shankar for load more option on purchase list */
+//Added by shankar START
+//Route for load more option on purchase list
+
 Route::middleware(['auth:sanctum','verified','isSellerUser','isSellerActive'])
 ->post('/seller/search-load-more-seller-purchased-lead',[Sellerdashboard::class,'searchLoadMoreSellerPurchasedLead']);
 
-        
+//Seller route for view-purchased leads details
+Route::middleware(['auth:sanctum','verified','isSellerUser','isSellerActive'])
+->post('/seller/view-purchased-lead-details',[Sellerdashboard::class,'viewPurchasedLeadsDetails']);
+
+//Seller Route for edit profile
+Route::middleware(['auth:sanctum', 'verified', 'isSellerUser', 'isSellerActive'])
+->get('/seller/dashboard-myprofile',  [Sellerdashboard::class, 'editSellerProfile']); 
+
+//Seller Route for change password
+Route::middleware(['auth:sanctum', 'verified', 'isSellerUser', 'isSellerActive'])
+->get('/seller/change-password',  [Sellerdashboard::class, 'changePassword']);
+
+Route::middleware(['auth:sanctum', 'verified', 'isSellerUser', 'isSellerActive'])
+->post('/seller/changePassword',  [Sellerdashboard::class, 'updateSellerPassword']); 
+
+//Added by shankar END
+
  // Seller route for catalog
  Route::middleware(['auth:sanctum', 'verified'])
  ->get('/seller/catalog/{sellerCatalogUrl}',  [Sellerdashboard::class, 'showSellerCatalog']);

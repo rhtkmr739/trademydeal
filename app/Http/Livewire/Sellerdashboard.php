@@ -154,10 +154,11 @@ class Sellerdashboard extends Component
 
     public function getPurchasedLeads(Request $request){
         try{
-
+            
             $limit = 5;
             $offset = 0;
-             $getVerifiedPurchasedLeadsForSellerDetails =  DB::select("call uspGetVerifiedPurchasedLeadsForSeller(".Auth::user()->id.",'',".$offset.",".$limit.")");
+            
+             $getVerifiedPurchasedLeadsForSellerDetails =  DB::select("call uspGetVerifiedPurchasedLeadsForSeller(".Auth::user()->id .",'',".$offset.",".$limit.")");
 
              if($getVerifiedPurchasedLeadsForSellerDetails){
                 return view('seller.purchase-leads',['getVerifiedPurchasedLeadsForSellerDetails'=>$getVerifiedPurchasedLeadsForSellerDetails,'page'=>1,'limit'=>$limit]);

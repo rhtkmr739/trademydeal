@@ -7,14 +7,18 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class NotifyMail extends Mailable
+class SendVerifyMail extends Mailable
 {
     use Queueable, SerializesModels;
+
     /**
      * The mail contents.
      *
      */
     protected $mailContent;
+    
+
+
     /**
      * Create a new message instance.
      *
@@ -32,7 +36,7 @@ class NotifyMail extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.demoMail')->with([
+        return $this->subject('TRADEMYDEAL')->view('emails.send-verified-mail')->with([
             'mailContent' => $this->mailContent
         ]);
     }

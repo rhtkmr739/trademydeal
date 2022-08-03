@@ -7,22 +7,23 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class NotifyMail extends Mailable
+class PromotionalMailOTPVerification extends Mailable
 {
     use Queueable, SerializesModels;
     /**
-     * The mail contents.
+     * The mail otp.
      *
      */
-    protected $mailContent;
+    protected $otp;
+    
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($mailContent)
+    public function __construct($otp)
     {
-        $this->mailContent = $mailContent;
+        $this->otp = $otp;
     }
 
     /**
@@ -32,8 +33,8 @@ class NotifyMail extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.demoMail')->with([
-            'mailContent' => $this->mailContent
+        return $this->subject('OTP received via TRADEMYDEAL')->view('emails.promotional-otp-mail')->with([
+            'otp' => $this->otp
         ]);
     }
 }

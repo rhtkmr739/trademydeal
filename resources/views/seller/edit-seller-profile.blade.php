@@ -16,7 +16,7 @@
 
                             <!-- dashboard content-->
 
-                            <form action="/seller/addProduct" method="post" enctype="multipart/form-data">
+                            <form action="" method="" id="editSellerProfile" enctype="multipart/form-data">
                             @csrf
 
                                 <div class="col-md-9">
@@ -29,49 +29,56 @@
                                         <div class="row">
                                             <div class="col-sm-6">
                                                 <label>Name<i class="fal fa-user"></i></label>
-                                                <input type="text" name="name" id="name" required placeholder="Enter name" value="{{session('userdetail')[0]->userName}}" readonly/>                                             
+                                                <input type="text" name="sellerName" id="sellerName" required placeholder="Enter name" value="{{session('userdetail')[0]->userName}}" readonly/>
+                                                                                        
                                             </div>
 
                                             <div class="col-sm-6">
                                                 <label>Company Name<i class="fal fa-building"></i></label>
-                                                <input type="text" name="company" id="company" required placeholder="Enter company name" value="{{$getSellerProfileData[0]->user_company_name}}"/>                                                
+                                                <input type="text" name="sellerCompany" id="sellerCompany" required placeholder="Enter company name" value="{{$getSellerProfileData[0]->user_company_name}}" readonly/>                                                
                                             </div>
 
                                             <div class="col-sm-6">
                                                 <label>Email<i class="fal fa-envelope"></i></label>
-                                                <input type="text" name="email" id="email" required placeholder="Enter email address of your product" value="{{$getSellerProfileData[0]->user_company_email}}" readonly/>                                                
+                                                <input type="text" name="sellerEmail" id="sellerEmail" required placeholder="Enter your email address" value="{{$getSellerProfileData[0]->user_company_email}}" readonly/>                                                
                                             </div>
 
                                             <div class="col-sm-6">
                                                 <label>Contact Number<i class="fal fa-phone"></i></label>
-                                                <input type="text" name="mobile" id="mobile" required placeholder="Enter contact number of your product" value="{{$getSellerProfileData[0]->user_company_mobile}}"/>                                                
+                                                <input type="text" name="sellerMobile" id="sellerMobile" required placeholder="Enter your contact number" value="{{$getSellerProfileData[0]->user_company_mobile}}"/>
+                                                <span class="sellerMobileError allErrors" style="color:red;"></span>                                                
                                             </div>
                                             
                                             <div class="col-sm-6">
                                                 <label>Address<i class="fal fa-map-marker"></i></label>
-                                                <input type="text" name="address" id="address" required placeholder="Enter address of your product" value="{{$getSellerProfileData[0]->user_company_address}}"/>                                                
+                                                <input type="text" name="sellerAddress" id="sellerAddress" required placeholder="Enter address of your company" value="{{$getSellerProfileData[0]->user_company_address}}"/><span class="sellerAddressError allErrors" style="color:red;"></span>                                                  
                                             </div>
                                             <div class="col-sm-6">
                                                 <label>City<i class="far fa-city"></i>  </label>
-                                                <input type="text" name="city"  id="city" required placeholder="Enter city of your product" value="{{$getSellerProfileData[0]->user_company_city}}"/> 
+                                                <input type="text" name="sellerCity"  id="sellerCity" required placeholder="Enter city" value="{{$getSellerProfileData[0]->user_company_city}}"/>
+                                                <span class="sellerCityError allErrors" style="color:red;"></span>  
                                             </div>
                                             <div class="col-sm-6">
                                                 <label>State<i class=""></i>  </label>
-                                                <input type="text" name="state" id="state" required placeholder="Enter state of your product" value="{{$getSellerProfileData[0]->user_company_state}}"/> 
+                                                <input type="text" name="sellerState" id="sellerState" required placeholder="Enter state" value="{{$getSellerProfileData[0]->user_company_state}}"/> 
+                                                <span class="sellerStateError allErrors" style="color:red;"></span>
                                             </div>
                                             <div class="col-sm-6">
                                                 <label>Pincode<i class=""></i>  </label>
-                                                <input type="text" name="pincode"  id="pincode" required placeholder="Enter pincode of your product" value="{{$getSellerProfileData[0]->user_company_zipcode}}"/> 
+                                                <input type="text" name="sellerPincode"  id="sellerPincode" required placeholder="Enter pincode " value="{{$getSellerProfileData[0]->user_company_zipcode}}"/>
+                                                <span class="sellerPincodeError allErrors" style="color:red;"></span>
                                             </div>
 
                                             <div class="col-sm-6">
                                                 <label>Country<i class="far fa-flag"></i>  </label>
-                                                <input type="text" name="pincode"  id="pincode" required placeholder="Enter pincode of your product" value="{{$getSellerProfileData[0]->country_name}}"/> 
+                                                <input type="text" name="sellerCountry"  id="sellerCountry" required placeholder="Enter your country name" value="{{$getSellerProfileData[0]->country_name}}"/>
+                                                
                                             </div>
 
                                             <div class="col-sm-6">
                                                 <label>Website<i class="far fa-globe"></i>  </label>
-                                                <input type="text" name="pincode"  id="pincode" required placeholder="Enter pincode of your product" value="{{$getSellerProfileData[0]->user_company_website}}"/> 
+                                                <input type="text" name="sellerWebsite"  id="sellerWebsite" required placeholder="Enter your company website" value="{{$getSellerProfileData[0]->user_company_website}}"/>
+                                                <span class="sellerWebsiteError allErrors" style="color:red;"></span>
                                             </div>
 
                                             <div class="col-sm-12">
@@ -116,7 +123,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-md-12">
-                                            <button type="submit" class="btn color2-bg float-btn pull-right">CONFIRM<i class="fal fa-paper-plane"></i></button>
+                                            <button type="submit" class="btn color2-bg float-btn pull-right" id="editSellerProfileBtn">SAVE<i class="fal fa-paper-plane"></i></button>
                                             </div>
                                         </div>
                                     </div>

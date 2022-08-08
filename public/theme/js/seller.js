@@ -359,3 +359,86 @@ $(document).ready(function(){
         
     });
 });
+
+//JQuery Code for seller edit profile module
+$(document).ready(function(){
+    $('#editSellerProfileBtn').on('click',function(event){
+        event.preventDefault();
+        let sellerMobile    = $('#sellerMobile').val();
+        let sellerAddress   = $('#sellerAddress').val();        
+        let sellerCity      = $('#sellerCity').val();
+        let sellerState     = $('#sellerState').val();
+        
+        let sellerPincode   = $('#sellerPincode').val();
+        let sellerWebsite   = $('#sellerWebsite').val();
+        let src             = "/seller/editSellerProfile";
+
+        //Check Validations 
+        if(sellerMobile == ""){
+            $('.sellerMobileError').html("Please enter mobile number");
+            $('#sellerMobile').focus();
+            return false;       
+        }
+        
+        if($.trim(sellerAddress) == ""){
+            $('.allErrors').html("");
+            $('.sellerAddressError').html("Please enter your address");
+            $('#sellerAddress').focus();
+            return false;
+        }
+
+        if(sellerCity == ""){
+            $('.allErrors').html("");
+            $('.sellerCityError').html("Please enter your city" );
+            $('#sellerCity').focus();
+            return false;
+        }
+
+        if(sellerState == ""){
+            $('.allErrors').html("");
+            $('.sellerStateError').html("Please enter your state");
+            $('#sellerState').focus();
+            return false;
+        }
+
+        if(sellerPincode == ""){
+            $('.allErrors').html("");
+            $('.sellerPincodeError').html("Please enter your pincode");
+            $('#sellerPincode').focus();
+            return false;
+        }
+
+        if(sellerWebsite == ""){
+            $('.allErrors').html("");
+            $('.sellerWebsiteError').html("Please enter your website");
+            $('#sellerWebsite').focus();
+            return false;
+        }
+
+        $.ajax({
+            url: src,
+            method: "POST",
+            data:{
+                "_token": $('meta[name="csrf-token"]').attr('content'),
+                sellerMobile:   sellerMobile,
+                sellerAddress:  sellerAddress,
+                sellerCity:     sellerCity,
+                sellerState:    sellerState,
+                sellerPincode:  sellerPincode,
+                sellerWebsite:  sellerWebsite,
+            },
+            success:function(response){
+                if(response.responseStatus){
+                    swal(response.responseData, {
+                        icon: "success",
+                      });
+                }else{
+                    swal(response.responseData, {
+                        icon: "error",
+                      });
+                }
+            }
+        });
+
+    });
+});

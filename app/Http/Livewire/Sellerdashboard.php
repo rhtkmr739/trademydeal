@@ -154,11 +154,10 @@ class Sellerdashboard extends Component
 
     public function getPurchasedLeads(Request $request){
         try{
-            
+
             $limit = 5;
             $offset = 0;
-            
-             $getVerifiedPurchasedLeadsForSellerDetails =  DB::select("call uspGetVerifiedPurchasedLeadsForSeller(".Auth::user()->id .",'',".$offset.",".$limit.")");
+             $getVerifiedPurchasedLeadsForSellerDetails =  DB::select("call uspGetVerifiedPurchasedLeadsForSeller(".Auth::user()->id.",'',".$offset.",".$limit.")");
 
              if($getVerifiedPurchasedLeadsForSellerDetails){
                 return view('seller.purchase-leads',['getVerifiedPurchasedLeadsForSellerDetails'=>$getVerifiedPurchasedLeadsForSellerDetails,'page'=>1,'limit'=>$limit]);
@@ -275,7 +274,7 @@ class Sellerdashboard extends Component
 
 
     //function to load edit seller profile view
-    public function editSellerProfile(Request $request){
+    public function getSellerProfile(Request $request){
         try{
             $getSellerProfileData = DB::select("call uspGetCurrentUserDetails(".Auth::user()->id.",".session('userdetail')[0]->userType.")");
           
@@ -299,8 +298,8 @@ class Sellerdashboard extends Component
     public function updateSellerPassword(Request $request){
        
          try{
-            $newPassword = Hash::make($request->newPassword);
-            
+
+            $newPassword = Hash::make($request->newPassword);            
 
             if(Hash::check($request->currentPassword,auth()->user()->password)){
                 $UpdateUserPassword = DB::select("call uspUpdateCurrentUserPassword(".Auth::user()->id.",'".$newPassword."')");
@@ -318,6 +317,26 @@ class Sellerdashboard extends Component
             return redirect()->back()
             ->withErrors(['error' => 'Something Went Wrong']);
         }
+    }
+
+    //Function to edit Seller Profile
+    public function editSellerProfile(Request $request){
+
+       try{
+
+        $UpdateSellerProfile =  DB::select("call uspUpdateCurrentUserDetails(".Auth::user()->id.",'".$request->sellerMobile."','".$request->sellerAddress."','".$request->sellerCity."','".$request->sellerState."','".$request->sellerPincode."','".$request->sellerWebsite."')");
+        
+        if($UpdateSellerProfile[0]->success == 'Y'){
+            return ["responseStatus"=>true,"responseData"=>$UpdateSellerProfile[0]->message];
+        }else{
+            return ["responseStatus"=>false,"responseData"=>$UpdateSellerProfile[0]->message];
+        } 
+
+       }catch(\Exception $ex){
+        print_r($ex->getMessage()); exit();
+        return redirect()->back()
+        ->withErrors(['error' =>'Something Went Wrong']);
+       }
     }
 
 }

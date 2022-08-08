@@ -111,7 +111,7 @@ Route::middleware(['auth:sanctum','verified','isSellerUser','isSellerActive'])
 
 //Seller Route for edit profile
 Route::middleware(['auth:sanctum', 'verified', 'isSellerUser', 'isSellerActive'])
-->get('/seller/dashboard-myprofile',  [Sellerdashboard::class, 'editSellerProfile']); 
+->get('/seller/dashboard-myprofile',  [Sellerdashboard::class, 'getSellerProfile']); 
 
 //Seller Route for change password
 Route::middleware(['auth:sanctum', 'verified', 'isSellerUser', 'isSellerActive'])
@@ -119,6 +119,10 @@ Route::middleware(['auth:sanctum', 'verified', 'isSellerUser', 'isSellerActive']
 
 Route::middleware(['auth:sanctum', 'verified', 'isSellerUser', 'isSellerActive'])
 ->post('/seller/changePassword',  [Sellerdashboard::class, 'updateSellerPassword']); 
+
+//Seller Route for Edit Seller Profile
+Route::middleware(['auth:sanctum', 'verified', 'isSellerUser', 'isSellerActive'])
+->post('/seller/editSellerProfile',  [Sellerdashboard::class, 'editSellerProfile']); 
 
 //Added by shankar END
 
